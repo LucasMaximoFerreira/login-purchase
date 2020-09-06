@@ -1,0 +1,43 @@
+drop database prova_1;
+
+create database prova_1;
+
+use prova_1;
+
+create table usuario
+(
+  id_usu int auto_increment,
+  login_usu text not null,
+  senha_usu text not null,
+  
+  primary key(id_usu)
+);
+
+insert into usuario values (0,'9M4JrlPQurBwbY5l6yms8w==','x4IEMlG/g2G7PbKCLFDhLw==');
+
+create table produto
+(
+  id_prod int auto_increment,
+  nome_prod text not null,
+  fabricante_prod text not null,
+  preco_prod text not null,
+ 
+  primary key(id_prod)
+);
+
+insert into produto values (0,'EZkrsNfhMv0VJv/bUNT9wQ==','ns22488NP5cJNbUDE4WSeQ==','YZITO5kky8u9kCLIytNBxA==');
+insert into produto values (0,'s0IW0m3H2e/E0eiau9NY5A==','VIfR7bAanjsxUHtjcp0hEQ==','csaIJzWac0I9Tn2dpbdfPg==');
+insert into produto values (0,'SpYB4c8P4mU1uKmCmVmkGQ==','s3vzSNRTU8vo6MbytfCZVA==','nHtl1mEww008Y2dniAjVjg==');
+
+create table vendas
+(
+  id_vendas int auto_increment,
+  id_prod int not null,
+  qtd text not null,
+  total text not null, 
+
+  primary key(id_vendas),
+  foreign key(id_prod) references produto(id_prod)
+);
+
+
